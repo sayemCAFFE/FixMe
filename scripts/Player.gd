@@ -32,6 +32,7 @@ func _player_reset():
 	
 func _collected_sword():
 	have_sword = true
+	$AttackNode/AttackArea/AttackCollision.disabled = false
 
 func _can_fly(state):
 	flying = state
@@ -45,16 +46,16 @@ func _input(event):
 	direction.x = 0
 	
 	if Input.is_action_pressed("left"):
-		direction.x += speed
+		direction.x -= speed
 				
-		$PlayerAnim.flip_h = false
+		$PlayerAnim.flip_h = true
 		if not attacking:
 			$PlayerAnim.play("walk")
 		
 	elif Input.is_action_pressed("right"):
-		direction.x -= speed
+		direction.x += speed
 		
-		$PlayerAnim.flip_h = true
+		$PlayerAnim.flip_h = false
 		if not attacking:
 			$PlayerAnim.play("walk")
 	
@@ -65,10 +66,11 @@ func _input(event):
 			
 		
 	if Input.is_action_just_pressed("attack") and have_sword:
-		attacking = true	
-		$PlayerAnim.play("attack")	
+		attacking = true
+		$PlayerAnim.set_frame(0)
+		$PlayerAnim.play("attack")
+		
 		$AttackNode/AttackArea/AttackCollision.disabled = false
-			
 
 
 func _process(delta):
