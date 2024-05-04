@@ -19,7 +19,6 @@ var start_position = Vector2.ZERO
 
 var have_sword = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	start_position = global_position
 	start_position.y -= 200
@@ -47,14 +46,14 @@ func _input(event):
 	
 	if Input.is_action_pressed("left"):
 		direction.x -= speed
-				
+		$AttackNode.scale.x = -1
 		$PlayerAnim.flip_h = true
 		if not attacking:
 			$PlayerAnim.play("walk")
 		
 	elif Input.is_action_pressed("right"):
 		direction.x += speed
-		
+		$AttackNode.scale.x = 1
 		$PlayerAnim.flip_h = false
 		if not attacking:
 			$PlayerAnim.play("walk")
@@ -110,17 +109,18 @@ func _use_portal(new_position):
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", new_position, 1.0)
 	yield (tween, "finished")
-
+	call_deferred("_collision_on")
 	visible = true
 
 
 
 
 func _collision_off():
-	$AttackNode/AttackArea/AttackCollision.disabled=true
+	$AttackNode/AttackArea/AttackCollision.disabled = true
 	$PlayerCollision.disabled = true
 
 func _collision_on():
+	
 	$PlayerCollision.disabled = false
 	
 
