@@ -30,8 +30,11 @@ func _player_reset():
 	global_position = start_position
 	
 func _collected_sword():
+	call_deferred("_sword_collected")
+
+func _sword_collected():
 	have_sword = true
-	$AttackNode/AttackArea/AttackCollision.disabled = false
+	$"%AttackCollision".disabled = true
 
 func _can_fly(state):
 	flying = state

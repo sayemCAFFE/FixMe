@@ -102,10 +102,7 @@ position = Vector2( -801, 166 )
 [node name="Crystals" type="Node2D" parent="."]
 
 [node name="Crystal" parent="Crystals" instance=ExtResource( 5 )]
-position = Vector2( -604, 48 )
-
-[node name="Crystal10" parent="Crystals" instance=ExtResource( 5 )]
-position = Vector2( -1650, 143 )
+position = Vector2( -836, -177 )
 
 [node name="Crystal2" parent="Crystals" instance=ExtResource( 5 )]
 position = Vector2( -1038, 144 )
@@ -117,7 +114,7 @@ position = Vector2( -1526, 301 )
 position = Vector2( -1169, -177 )
 
 [node name="Crystal5" parent="Crystals" instance=ExtResource( 5 )]
-position = Vector2( -498, -174 )
+position = Vector2( -386, -175 )
 
 [node name="Crystal6" parent="Crystals" instance=ExtResource( 5 )]
 position = Vector2( -1587, -46 )
@@ -131,29 +128,32 @@ position = Vector2( -2161, 48 )
 [node name="Crystal9" parent="Crystals" instance=ExtResource( 5 )]
 position = Vector2( -2000, 239 )
 
+[node name="Crystal10" parent="Crystals" instance=ExtResource( 5 )]
+position = Vector2( -1605, 141 )
+
 [node name="enemies" type="Node2D" parent="."]
 
 [node name="Goomba" parent="enemies" instance=ExtResource( 3 )]
-position = Vector2( -860, 272 )
+position = Vector2( -842, 272 )
 walk_speed = 70
 walk_time = 1.0
 
 [node name="Goomba2" parent="enemies" instance=ExtResource( 3 )]
 position = Vector2( -1684, 304 )
 walk_speed = 120
-walk_time = 6.0
+walk_time = 2.0
 
 [node name="Goomba3" parent="enemies" instance=ExtResource( 3 )]
-position = Vector2( -2096, 47 )
+position = Vector2( -2062, 47 )
 walk_speed = 60
 
 [node name="Goomba4" parent="enemies" instance=ExtResource( 3 )]
-position = Vector2( -1455, -176 )
+position = Vector2( -1503, -176 )
 walk_speed = 60
 walk_time = 5.0
 
 [node name="Goomba5" parent="enemies" instance=ExtResource( 3 )]
-position = Vector2( -432, -177 )
+position = Vector2( -463, -178 )
 walk_speed = 80
 
 [node name="Portal1" parent="." instance=ExtResource( 12 )]
@@ -172,10 +172,10 @@ crystals_path = NodePath("../Crystals")
 position = Vector2( -1319, 809 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FallArea"]
-position = Vector2( -281, 14.5 )
+position = Vector2( -281, -115.5 )
 shape = SubResource( 9 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -273, 214 )
+position = Vector2( -289, 83 )
 
 [connection signal="body_entered" from="FallArea" to="." method="_on_FallArea_body_entered"]

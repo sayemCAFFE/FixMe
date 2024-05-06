@@ -165,6 +165,7 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="AttackCollision" type="CollisionShape2D" parent="AttackNode/AttackArea"]
+unique_name_in_owner = true
 rotation = 1.19528
 shape = SubResource( 26 )
 disabled = true
@@ -180,14 +181,14 @@ position = Vector2( 0, -69 )
 current = true
 
 [node name="RayCastFloor" type="RayCast2D" parent="."]
-position = Vector2( 7, 9 )
+position = Vector2( 6, 8 )
 enabled = true
-cast_to = Vector2( 0, 19 )
+cast_to = Vector2( 0, 17 )
 
 [node name="RayCastFloor2" type="RayCast2D" parent="."]
-position = Vector2( -12, 9 )
+position = Vector2( -10, 8 )
 enabled = true
-cast_to = Vector2( 0, 19 )
+cast_to = Vector2( 0, 17 )
 
 [node name="UI" parent="." instance=ExtResource( 3 )]
 

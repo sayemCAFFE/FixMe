@@ -9,7 +9,7 @@ onready var all_crystals = get_node(crystals_path)
 
 func _check_crystals():
 	var crystal_count = all_crystals.get_child_count()
-	if crystal_count >= 0:
+	if crystal_count <= 0:
 		print ("YOU WIN")
 		get_tree().change_scene("res://scenes/GameOver.tscn")
 	else:
